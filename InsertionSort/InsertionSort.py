@@ -1,7 +1,6 @@
+import random
 
 def insertion_sort(a):
-	# for j in range(len(a)):
-	# 	print j
 	j = 1
 	while(j < len(a)):
 		key = a[j]
@@ -15,20 +14,21 @@ def insertion_sort(a):
 
 def read_file():
     f = open('numbers.txt','r')
-    a = [int(x) for x in f.read().split(',')]
+    a = [int(x) for x in f.read().split(';')]
     f.close()
     return a
 
-def gen_int_numbers(1000):
-	
-
-
-
+def gen_int_numbers(x):
+	a = [str(random.randrange(1,1000)) for i in range(x)]
+	s = ';'.join([a[i] for i in range(x)])
+	f = open('numbers.txt','w')
+	f.write(s)
+	f.close()
 
 def main():
-	gen_int_numbers(1000)
-    a = read_file()
-    print(insertion_sort(a))
+	gen_int_numbers(100)
+    	a = read_file()
+    	print(insertion_sort(a))
 
 if __name__ == '__main__':
 	main()
