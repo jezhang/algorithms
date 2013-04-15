@@ -19,7 +19,8 @@ def read_file():
 def gen_int_numbers(x):
 	# a = [str(random.randrange(1,1000)) for i in range(x)]
 	a = [str(random.randint(1,1000)) for i in range(x)]
-	s = ';'.join([a[i] for i in range(x)])
+	a = list(set(a))		# Remove duplicates
+	s = ';'.join([a[i] for i in range(len(a))])
 	f = open('numbers.txt','w')
 	f.write(s)
 	f.close()
